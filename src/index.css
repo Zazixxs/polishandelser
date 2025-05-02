@@ -25,9 +25,12 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  flex-direction: column;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -64,5 +67,39 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Responsive grid layout for cards */
+#root > div:last-child {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: center;
+  
+  /* Default: 1 column for very small screens */
+  grid-template-columns: minmax(280px, 1fr);
+}
+
+/* Small mobile devices (2 columns) */
+@media (min-width: 600px) {
+  #root > div:last-child {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+}
+
+/* Tablets and small desktops (3 columns) */
+@media (min-width: 900px) {
+  #root > div:last-child {
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+  }
+}
+
+/* Larger desktops (4 columns) */
+@media (min-width: 1200px) {
+  #root > div:last-child {
+    grid-template-columns: repeat(4, minmax(280px, 1fr));
   }
 }

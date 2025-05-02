@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import MediaCard from './components/Card';
 import CustomSelect from './components/Select';
+import Logo from './components/Logo'; // Import the Logo component
 
 function App() {
   interface Event {
@@ -9,6 +10,7 @@ function App() {
     type: string;
     summary: string;
     url: string;
+    datetime: string;
     location: {
       name: string;
       gps?: string;
@@ -43,7 +45,9 @@ function App() {
 
   return (
     <>
-      <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+      <Logo />
+      <h1>Senaste Polis händelserna</h1>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
         <CustomSelect
           label="Location"
           options={locations}
@@ -57,7 +61,7 @@ function App() {
           onChange={setSelectedType}
         />
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+      <div>
         {filteredEvents.map((event) => (
           <MediaCard
             key={event.id}
@@ -67,6 +71,7 @@ function App() {
             url={event.url}
             type={event.type}
             location={event.location.name}
+            time={event.datetime}
           />
         ))}
       </div>
