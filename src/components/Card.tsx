@@ -15,13 +15,13 @@ interface MediaCardProps{
 }
 
 const imageMapping: Record<string, string> = {
-    "Trafikolycka": "/src/assets/trafikolycka.png",
-    "Rattfylleri": "/src/assets/trafikolycka.png",
-    "Brand": "/src/assets/brand.png",
-    "Mord/dråp": "/src/assets/mord.png",
-    "Narkotikabrott": "/src/assets/narkotikabrott.png",
-    "Rån": "/src/assets/robbery.png"
-};
+    "Trafikolycka": "/assets/trafikolycka.png",
+    "Rattfylleri": "/assets/trafikolycka.png", // same image reused
+    "Brand": "/assets/brand.png",
+    "Mord/dråp": "/assets/mord.png",
+    "Narkotikabrott": "/assets/narkotikabrott.png",
+    "Rån": "/assets/robbery.png"
+  };
 
 export default function MediaCard({ title, description, image, url, type, location }: MediaCardProps & { type: string }) {
     const baseType = type.split(',')[0].trim();
