@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <Logo />
-      <h1>Senaste Polis händelserna</h1>
+      <h1>Senaste Polishändelserna</h1>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
         <CustomSelect
           label="Location"
