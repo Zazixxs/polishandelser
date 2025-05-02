@@ -43,6 +43,7 @@ function App() {
       (!selectedType || event.type === selectedType)
   );
 
+
   return (
     <>
       <Logo />
@@ -78,5 +79,6 @@ function App() {
     </>
   );
 }
+//hej
 
 export default App;
