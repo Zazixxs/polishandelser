@@ -17,7 +17,7 @@ function App() {
   }
 
 const [events, setEvents] = useState<Event[]>([]);
-const [loading, setLoading] = useState(true);
+
 
 const police_url = "https://polisen.se/api/events"
 
@@ -26,11 +26,9 @@ useEffect(() => {
     .then((response) => response.json())
     .then((data) => {
       setEvents(data);
-      setLoading(false);
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
-      setLoading(false);
     });
 }, []);
   return (
@@ -38,7 +36,7 @@ useEffect(() => {
       <Select>
       </Select>
       <div style={{display: 'flex', flexWrap:'wrap', gap: '1rem'}}>
-        {events.map((event,index) => (
+        {events.map((event) => (
         <MediaCard
         key={event.id}
         title={event.type}
