@@ -25,7 +25,7 @@ const imageMapping: Record<string, string> = {
 
 export default function MediaCard({ title, description, image, url, type, location }: MediaCardProps & { type: string }) {
     const baseType = type.split(',')[0].trim();
-    const resolvedImage = image || imageMapping[baseType] || "/src/assets/default.png";
+    const resolvedImage = image || imageMapping[baseType] || "/assets/default.png";
 
     return (
       <Card sx={{ width: 345, height: 400, display: 'flex', flexDirection: 'column' }}>
