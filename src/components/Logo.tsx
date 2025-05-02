@@ -1,14 +1,14 @@
 import React from 'react';
 
 interface LogoProps {
-  size?: number; // Size of the logo in pixels
-  altText?: string; // Alternative text for the logo
+  size?: number; 
+  altText?: string; 
 }
 
 const Logo: React.FC<LogoProps> = ({ size = 100, altText = 'Logo' }) => {
   return (
     <img
-      src="./public/assets/icon.png" // Update this path to the correct location of icon.png
+      src="./public/assets/icon.png" 
       alt={altText}
       width={size}
       height={size}

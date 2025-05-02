@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import MediaCard from './components/Card';
 import CustomSelect from './components/Select';
-import Logo from './components/Logo'; // Import the Logo component
+import Logo from './components/Logo'; 
 
 function App() {
   interface Event {

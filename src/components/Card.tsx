@@ -16,7 +16,7 @@ interface MediaCardProps{
 
 const imageMapping: Record<string, string> = {
     "Trafikolycka": "/assets/trafikolycka.png",
-    "Rattfylleri": "/assets/trafikolycka.png", // same image reused
+    "Rattfylleri": "/assets/trafikolycka.png", 
     "Brand": "/assets/brand.png",
     "Mord/dråp": "/assets/mord.png",
     "Narkotikabrott": "/assets/narkotikabrott.png",
@@ -27,7 +27,7 @@ export default function MediaCard({ title, description, image, url, type, locati
     const baseType = type.split(',')[0].trim();
     const resolvedImage = image || imageMapping[baseType] || "/assets/default.png";
     
-    // Format the datetime string to a more readable format
+   
     const formatDateTime = (dateTimeStr: string) => {
       if (!dateTimeStr) return '';
       
@@ -42,7 +42,7 @@ export default function MediaCard({ title, description, image, url, type, locati
         });
       } catch (error) {
         console.error('Error formatting date:', error);
-        return dateTimeStr; // Return original string if formatting fails
+        return dateTimeStr;
       }
     };
 
@@ -52,17 +52,17 @@ export default function MediaCard({ title, description, image, url, type, locati
       <Card
         sx={{
           width: '100%',
-          minHeight: '350px', // Minimum height instead of fixed height
-          maxHeight: {xs: 'none', sm: '400px'}, // Responsive max height
+          minHeight: '350px', 
+          maxHeight: {xs: 'none', sm: '400px'},
           display: 'flex',
           flexDirection: 'column',
           boxSizing: 'border-box',
-          overflow: 'hidden' // Prevent content from spilling out
+          overflow: 'hidden' 
         }}
       >
         <CardMedia
             sx={{ 
-              height: {xs: '120px', sm: '150px'}, // Responsive image height
+              height: {xs: '120px', sm: '150px'},
               width: '100%', 
               objectFit: 'cover' 
             }}
@@ -74,8 +74,8 @@ export default function MediaCard({ title, description, image, url, type, locati
           sx={{ 
             flexGrow: 1, 
             overflow: 'hidden',
-            padding: {xs: '12px', sm: '16px'}, // Smaller padding on mobile
-            pb: 0 // Remove bottom padding to save space
+            padding: {xs: '12px', sm: '16px'}, 
+            pb: 0 
           }}
         > 
           <Typography 
@@ -98,9 +98,9 @@ export default function MediaCard({ title, description, image, url, type, locati
               overflow: 'hidden', 
               textOverflow: 'ellipsis', 
               display: '-webkit-box', 
-              WebkitLineClamp: {xs: 2, sm: 3}, // Fewer lines on mobile
+              WebkitLineClamp: {xs: 2, sm: 3}, 
               WebkitBoxOrient: 'vertical',
-              fontSize: {xs: '0.8rem', sm: '0.875rem'} // Smaller font on mobile
+              fontSize: {xs: '0.8rem', sm: '0.875rem'} 
             }}
           >
             {description}
@@ -111,9 +111,9 @@ export default function MediaCard({ title, description, image, url, type, locati
             display: 'flex', 
             flexDirection: {xs: 'column', sm: 'column'}, 
             alignItems: 'flex-start',
-            mt: 'auto', // Push to bottom of card
+            mt: 'auto', 
             pt: 0,
-            px: {xs: '12px', sm: '16px'}, // Match content padding
+            px: {xs: '12px', sm: '16px'}, 
             pb: {xs: '12px', sm: '16px'}
           }}
         >
@@ -130,14 +130,14 @@ export default function MediaCard({ title, description, image, url, type, locati
             display: 'flex', 
             justifyContent: 'space-between', 
             width: '100%',
-            flexWrap: 'wrap', // Allow wrapping on very small screens
-            gap: '4px' // Add gap when items wrap
+            flexWrap: 'wrap', 
+            gap: '4px' 
           }}>
             <Typography 
               variant="subtitle2" 
               sx={{
                 fontSize: {xs: '0.7rem', sm: '0.8rem'}, 
-                maxWidth: '60%', // Limit width to prevent overlap
+                maxWidth: '60%', 
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis'
