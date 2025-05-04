@@ -8,12 +8,12 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ size = 100, altText = 'Logo' }) => {
   return (
     <img
-      src="./public/assets/icon.png" 
-      alt={altText}
-      width={size}
-      height={size}
-      style={{ display: 'block', margin: 'auto' }}
-    />
+  src="/assets/icon.png" 
+  alt={altText}
+  width={size}
+  height={size}
+  style={{ display: 'block', margin: 'auto' }}
+/>
   );
 };
 
