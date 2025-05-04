@@ -2,22 +2,27 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  transition: color 0.2s ease;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -29,32 +34,39 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  padding: 1rem;
-  box-sizing: border-box;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
   line-height: 1.1;
+  margin: clamp(0.5rem, 2vw, 1.5rem) 0;
+  text-align: center;
 }
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: clamp(0.9em, 1vw, 1em);
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 button:hover {
   border-color: #646cff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 3px solid rgba(100, 108, 255, 0.6);
 }
 
 @media (prefers-color-scheme: light) {
@@ -70,35 +82,44 @@ button:focus-visible {
   }
 }
 
-
-#root > div:last-child {
-  display: grid;
-  gap: 1.5rem;
+#root {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#root > div:last-child {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+  margin: 0 auto;
   justify-content: center;
-  
-  
-  grid-template-columns: minmax(280px, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
-
-@media (min-width: 600px) {
+@media (max-width: 599px) {
   #root > div:last-child {
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 600px) and (max-width: 899px) {
   #root > div:last-child {
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+@media (min-width: 900px) and (max-width: 1199px) {
+  #root > div:last-child {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 @media (min-width: 1200px) {
   #root > div:last-child {
-    grid-template-columns: repeat(4, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 }
